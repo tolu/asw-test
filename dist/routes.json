@@ -5,6 +5,15 @@
       "serve": "/blabla.html"
     },
     {
+      "route": "/secure",
+      "serve": "/secure.html",
+      "allowedRoles": ["admin"]
+    },
+    {
+      "route": "/me",
+      "serve": "/.auth/me"
+    },
+    {
       "route": "/logout",
       "serve": "/.auth/logout"
     },
