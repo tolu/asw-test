@@ -39,15 +39,27 @@
       </div>
 
     </form>
-
+    <hr />
     <div>
       <pre></pre>
     </div>
+    <hr />
+    <div>
+      <button>Get Fantastic Api</button>
+      <p></p>
+    </div>
     <script>
+      const btnEl = document.querySelector('button');
       const preEl = document.querySelector('pre');
       fetch('/.auth/me')
         .then((res) => res.json())
         .then((json) => preEl.innerHTML = JSON.stringify(json, null, 4));
+
+      btnEl.addEventListener('click', () => {
+        fetch('/api/toogleApi')
+          .then((res) => res.text())
+          .then((txt) => btnEl.nextElementSibling.innerHTML = txt);
+      })
     </script>
   </main>
 </body>

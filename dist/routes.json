@@ -1,8 +1,8 @@
 {
   "routes": [
     {
-      "route": "/api/toggleApi",
-      "serve": "/api/toogleApi"
+      "route": "/about",
+      "serve": "/blabla.html"
     },
     {
       "route": "/logout",
@@ -15,6 +15,11 @@
     {
       "route": "/.auth/login/twitter",
       "statusCode": "404"
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
     }
   ],
   "platformErrorOverrides": [
