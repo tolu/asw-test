@@ -76,6 +76,7 @@
         state.user = json.clientPrincipal;
         preEl.innerHTML = JSON.stringify(state.user, null, 4);
         authLink.innerText = state.user ? 'Logout' : 'Login';
+        authLink.disabled = false;
         // TODO: display user photo via https://github.com/<user>.png
       }
     </script>
