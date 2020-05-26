@@ -48,18 +48,36 @@
       <button>Get Fantastic Api</button>
       <p></p>
     </div>
+    <hr />
+    <div>
+      <button class="auth" disabled>Loading...</button>
+    </div>
     <script>
       const btnEl = document.querySelector('button');
       const preEl = document.querySelector('pre');
+      const authLink = document.querySelector('button.auth');
+
+      const state = { user: null };
+
       fetch('/.auth/me')
         .then((res) => res.json())
-        .then((json) => preEl.innerHTML = JSON.stringify(json, null, 4));
+        .then(onGetUser);
 
       btnEl.addEventListener('click', () => {
         fetch('/api/toogleApi')
           .then((res) => res.text())
           .then((txt) => btnEl.nextElementSibling.innerHTML = txt);
-      })
+      });
+      authLink.addEventListener('click', () => {
+        document.location = state.user ? '/logout' : '/login';
+      });
+
+      function onGetUser(json) {
+        state.user = json.clientPrincipal;
+        preEl.innerHTML = JSON.stringify(state.user, null, 4);
+        authLink.innerText = state.user ? 'Logout' : 'Login';
+        // TODO: display user photo via https://github.com/<user>.png
+      }
     </script>
   </main>
 </body>
