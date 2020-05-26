@@ -1,8 +1,8 @@
 {
   "routes": [
     {
-      "route": "/me",
-      "serve": "/.auth/me"
+      "route": "/api/toggleApi",
+      "serve": "/api/toogleApi"
     },
     {
       "route": "/logout",

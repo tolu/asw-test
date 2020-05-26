@@ -45,7 +45,7 @@
     </div>
     <script>
       const preEl = document.querySelector('pre');
-      fetch('/me')
+      fetch('/.auth/me')
         .then((res) => res.json())
         .then((json) => preEl.innerHTML = JSON.stringify(json, null, 4));
     </script>
